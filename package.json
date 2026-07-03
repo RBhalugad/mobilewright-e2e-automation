@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@mobilewright/test": "^0.0.48",
+    "mobilewright": "^0.0.48"
+  },
+  "devDependencies": {
+    "@mobilewright/test": "0.0.37",
+    "mobilewright": "0.0.37",
+    "@types/node": "latest"
+  }
+}
