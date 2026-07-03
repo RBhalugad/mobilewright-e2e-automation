@@ -1,27 +1,22 @@
-import { test, expect } from '@mobilewright/test';
+import { test, expect } from './fixtures/commonFixtures';
 
 test.describe('General Store homePage', () => {
 
-  test('app launches and shows home screen', async ({ screen, device }) => {
-    await expect(screen.getByText('General Store')).toBeVisible();
-    await expect(screen.getByText('Select the country where you want to shop')).toBeVisible();
-    await expect(screen.getByText('Your Name')).toBeVisible();
-    await expect(screen.getByText(/Shop/i)).toBeVisible();
+  test('app launches and shows home screen', async ({ homePage }) => {
+    await homePage.verifyHomeScreenVisible();
   });
 
-  test('verify gender radio buttons are displayed', async ({ screen, device }) => {
-    await expect(screen.getByText('Female')).toBeVisible();
-    await expect(screen.getByText('Male')).toBeVisible();
-    await screen.getByText('Female').tap();
-    await expect(screen.getByText('Female')).toBeVisible();
-    await screen.getByText('Male').tap();
-    await expect(screen.getByText('Male')).toBeVisible();
+  test('verify gender radio buttons are displayed', async ({ homePage }) => {
+    await homePage.verifyGenderRadioButtonsVisible();
+    await homePage.selectFemale();
+    await expect(homePage.femaleRadio()).toBeVisible();
+    await homePage.selectMale();
+    await expect(homePage.maleRadio()).toBeVisible();
   });
 
-  test('enter name in name field', async ({ screen, device }) => {
-    await expect(screen.getByText('Your Name')).toBeVisible();
-    await screen.getByPlaceholder('Enter name here').fill('John Doe');
-    await expect(screen.getByText('John Doe')).toBeVisible();
+  test('enter name in name field', async ({ homePage }) => {
+    await expect(homePage.yourNameLabel()).toBeVisible();
+    await homePage.enterName('John Doe');
   });
 
 });
