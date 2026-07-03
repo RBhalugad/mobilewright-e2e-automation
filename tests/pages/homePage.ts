@@ -3,7 +3,6 @@ import { expect } from '@mobilewright/test';
 import { BasePage } from './basePage';
 
 export class HomePage extends BasePage {
-
     constructor(screen: Screen, device: Device) {
         super(screen, device);
     }

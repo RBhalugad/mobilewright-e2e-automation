@@ -102,21 +102,27 @@ export class BasePage {
     async assertTestIdHasText(testId: string, expectedText: string): Promise<void> {
         const actual = await this.screen.getByTestId(testId).getText();
         if (actual !== expectedText) {
-            throw new Error(`Expected element [testId="${testId}"] to have text "${expectedText}", but got "${actual}"`);
+            throw new Error(
+                `Expected element [testId="${testId}"] to have text "${expectedText}", but got "${actual}"`,
+            );
         }
     }
 
     async assertEnabled(testId: string): Promise<void> {
         const enabled = await this.screen.getByTestId(testId).isEnabled();
         if (!enabled) {
-            throw new Error(`Expected element [testId="${testId}"] to be enabled, but it was disabled.`);
+            throw new Error(
+                `Expected element [testId="${testId}"] to be enabled, but it was disabled.`,
+            );
         }
     }
 
     async assertSelected(testId: string): Promise<void> {
         const selected = await this.screen.getByTestId(testId).isSelected();
         if (!selected) {
-            throw new Error(`Expected element [testId="${testId}"] to be selected, but it was not.`);
+            throw new Error(
+                `Expected element [testId="${testId}"] to be selected, but it was not.`,
+            );
         }
     }
 }

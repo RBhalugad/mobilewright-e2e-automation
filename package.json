@@ -1,11 +1,16 @@
 {
-  "dependencies": {
-    "@mobilewright/test": "^0.0.48",
-    "mobilewright": "^0.0.48"
-  },
-  "devDependencies": {
-    "@mobilewright/test": "0.0.37",
-    "mobilewright": "0.0.37",
-    "@types/node": "latest"
-  }
+    "scripts": {
+        "format": "prettier --write .",
+        "format:check": "prettier --check ."
+    },
+    "dependencies": {
+        "@mobilewright/test": "^0.0.48",
+        "mobilewright": "^0.0.48"
+    },
+    "devDependencies": {
+        "@mobilewright/test": "0.0.37",
+        "@types/node": "latest",
+        "mobilewright": "0.0.37",
+        "prettier": "^3.9.4"
+    }
 }
