@@ -1,7 +1,6 @@
 import { test, expect } from './fixtures/commonFixtures';
 
 test.describe('General Store homePage', () => {
-
     test.afterEach(async ({ homePage }) => {
         await homePage.terminateApp('com.androidsample.generalstore');
     });

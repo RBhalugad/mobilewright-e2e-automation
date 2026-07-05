@@ -14,6 +14,9 @@ export class HomePage extends BasePage {
     femaleRadio = () => this.screen.getByText('Female');
     maleRadio = () => this.screen.getByText('Male');
     nameInput = () => this.screen.getByPlaceholder('Enter name here');
+    countryDropdown = () =>
+        this.screen.getByTestId('com.androidsample.generalstore:id/spinnerCountry');
+    letsShopButton = () => this.screen.getByTestId('com.androidsample.generalstore:id/btnLetsShop');
 
     async verifyHomeScreenVisible(): Promise<void> {
         await expect(this.heading()).toBeVisible();
@@ -35,8 +38,20 @@ export class HomePage extends BasePage {
         await this.maleRadio().tap();
     }
 
+    async selectCountry(name: string): Promise<void> {
+        await this.countryDropdown().tap();
+        const option = this.screen.getByText(name);
+        await option.scrollIntoViewIfNeeded({ maxSwipes: 20, direction: 'up' });
+        await option.waitFor({ state: 'visible', timeout: 10_000 });
+        await option.tap({ timeout: 15_000 });
+    }
+
     async enterName(name: string): Promise<void> {
         await this.nameInput().fill(name);
+    }
+
+    async tapLetsShop(): Promise<void> {
+        await this.letsShopButton().tap();
     }
 
     async verifyNameInput(name: string): Promise<void> {
@@ -46,7 +61,6 @@ export class HomePage extends BasePage {
     async hideKeyboard(): Promise<void> {
         await this.screen.pressButton('BACK');
     }
-
 
     async tapShop(): Promise<void> {
         await this.shopButton().tap();
