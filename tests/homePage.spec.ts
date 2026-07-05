@@ -1,6 +1,11 @@
 import { test, expect } from './fixtures/commonFixtures';
 
 test.describe('General Store homePage', () => {
+
+    test.afterEach(async ({ homePage }) => {
+        await homePage.terminateApp('com.androidsample.generalstore');
+    });
+
     test('app launches and shows home screen', async ({ homePage }) => {
         await homePage.verifyHomeScreenVisible();
     });
@@ -15,6 +20,8 @@ test.describe('General Store homePage', () => {
 
     test('enter name in name field', async ({ homePage }) => {
         await expect(homePage.yourNameLabel()).toBeVisible();
+        await homePage.nameInput().tap();
         await homePage.enterName('John Doe');
+        await homePage.hideKeyboard();
     });
 });

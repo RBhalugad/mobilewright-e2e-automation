@@ -39,6 +39,15 @@ export class HomePage extends BasePage {
         await this.nameInput().fill(name);
     }
 
+    async verifyNameInput(name: string): Promise<void> {
+        await expect(this.nameInput()).toHaveValue(name);
+    }
+
+    async hideKeyboard(): Promise<void> {
+        await this.screen.pressButton('BACK');
+    }
+
+
     async tapShop(): Promise<void> {
         await this.shopButton().tap();
     }
