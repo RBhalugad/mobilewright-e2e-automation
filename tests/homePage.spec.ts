@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures/commonFixtures';
+import { test, expect } from '../fixtures/commonFixtures';
 
 test.describe('General Store homePage', () => {
     test.afterEach(async ({ homePage }) => {

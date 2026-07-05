@@ -21,7 +21,6 @@ export class ProductPage extends BasePage {
 
     cartCounter = () => this.screen.getByTestId('com.androidsample.generalstore:id/counterText');
 
-
     async verifyProductsPageVisible(): Promise<void> {
         await expect(this.productsHeading()).toBeVisible();
     }

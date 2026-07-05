@@ -9,13 +9,15 @@ export class CartPage extends BasePage {
 
     cartHeading = () => this.screen.getByTestId('com.androidsample.generalstore:id/toolbar_title');
 
-    cartProductList = () => this.screen.getByTestId('com.androidsample.generalstore:id/rvCartProductList');
+    cartProductList = () =>
+        this.screen.getByTestId('com.androidsample.generalstore:id/rvCartProductList');
 
     cartItemName = (name: string) => this.screen.getByText(name);
 
     totalAmount = () => this.screen.getByTestId('com.androidsample.generalstore:id/totalAmountLbl');
 
-    emailCheckbox = () => this.screen.getByTestId('com.androidsample.generalstore:id/checkBoxTerms');
+    emailCheckbox = () =>
+        this.screen.getByTestId('com.androidsample.generalstore:id/checkBoxTerms');
 
     proceedButton = () => this.screen.getByText('Visit to the website to complete purchase');
 

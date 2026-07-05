@@ -1,4 +1,4 @@
-import { test, expect } from './fixtures/commonFixtures';
+import { test, expect } from '../fixtures/commonFixtures';
 
 test.describe('General Store end to end', () => {
     test.setTimeout(120_000);
@@ -7,8 +7,8 @@ test.describe('General Store end to end', () => {
         countryName: 'Brazil',
         gender: 'female',
         userName: 'John Doe',
-        items: ['Jordan 6 Rings', 'Nike SFB Jungle']
-    }
+        items: ['Jordan 6 Rings', 'Nike SFB Jungle'],
+    };
 
     test('add two items to cart and checkout', async ({ homePage, productPage, cartPage }) => {
         await test.step('Verify home screen is visible', async () => {
