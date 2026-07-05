@@ -11,30 +11,29 @@ test.describe('General Store end to end', () => {
     }
 
     test('add two items to cart and checkout', async ({ homePage, productPage, cartPage }) => {
-        test.step("Verify home screen is visible", async () => {
+        await test.step('Verify home screen is visible', async () => {
             await homePage.verifyHomeScreenVisible();
-        })
+        });
 
-        test.step("Enter Details", async () => {
+        await test.step('Enter Details', async () => {
             await homePage.selectCountry(testData.countryName);
             await homePage.selectFemale();
             await homePage.enterName(testData.userName);
             await homePage.hideKeyboard();
             await homePage.tapLetsShop();
-        })
+        });
 
-        test.step("Add two items to cart", async () => {
+        await test.step('Add two items to cart', async () => {
             await productPage.verifyProductsPageVisible();
             for (const item of testData.items) {
                 await productPage.addToCart(item);
             }
             await productPage.tapCartIcon();
-        })
-
-        test.step("Verify cart page is visible", async () => {
-            await cartPage.verifyCartPageVisible();
         });
 
+        await test.step('Verify cart page is visible', async () => {
+            await cartPage.verifyCartPageVisible();
+        });
     });
 
     test.afterEach(async ({ homePage }) => {

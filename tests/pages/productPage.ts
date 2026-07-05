@@ -17,7 +17,9 @@ export class ProductPage extends BasePage {
 
     addToCartButton = () => this.screen.getByText('ADD TO CART');
 
-    cartIcon = () => this.screen.getByTestId('com.androidsample.generalstore:id/action_cart');
+    cartIcon = () => this.screen.getByTestId('com.androidsample.generalstore:id/appbar_btn_cart');
+
+    cartCounter = () => this.screen.getByTestId('com.androidsample.generalstore:id/counterText');
 
 
     async verifyProductsPageVisible(): Promise<void> {
@@ -48,6 +50,7 @@ export class ProductPage extends BasePage {
     }
 
     async tapCartIcon(): Promise<void> {
+        await this.cartIcon().waitFor({ state: 'visible', timeout: 10_000 });
         await this.cartIcon().tap();
     }
 }
